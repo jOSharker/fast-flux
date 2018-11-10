@@ -1,0 +1,5 @@
+Version 1.1
+
+* Added extra column to the hostname table called 'track' to allow being able to decide what hostnames to track
+  regardless of whether they still resolve or not.
+* Modified the scripts to take this into account.

@@ -1,0 +1,19 @@
+INSTALL
+
+Upgrade:
+	
+	If you are upgrading from the previous version simply run the update.sql which will add the extra
+	column to the hostname table.
+	
+	psql fast-flux < updatedb.sql
+	
+	Then simply replace all the scripts that you are using instead of the previous versions
+	
+Fresh:
+
+	1) Create the database tables by running the install script:	
+		psql < setupdb.sql	
+	2) Configure the usernames and passwords in each of the scripts with your account that you are using
+	   for the database.
+
+	You are now ready to use the system.

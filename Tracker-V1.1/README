@@ -1,0 +1,35 @@
+Version 1.1 Tracking System
+
+This system is comprised of 3 scripts:
+1. A simple import script that will take hostnames and place them into a testing table
+2. A script that will take each of the hostnames in the test table and if they resolve more than 
+   10 distinct IP's then it is added into the final hostname table.
+3. A script that will take the hostnames from the hostname table and keep resolving the IP's adding
+   in distinct IP->hostname mappings
+   
+   
+Usage:
+
+1. add-to-test-table.pl
+	This perl script will simply take a flat file of hostnames and insert them into the hostname.
+	
+   perl add-to-test-table.pl [flat_file];
+   
+2. test_submissions.pl
+	simply run as perl test_submissions.pl this purely works with what is in the test table and the
+	outputs will be placed into the hostname table if they pass the thresh-hold
+
+3. flux.pl
+
+	Simply run this script as perl flux.pl It will continue to run forever resolving hostnames in the 
+	hostname table. Every now and again it will recheck the status of hostnames that do not respond 
+	aswell as only resolve the ones that we choose to track.
+	
+Stop tracking a designated hostname:
+
+This may occur if you are receiving large batches of hostnames but you are getting some crap ones you no longer
+want to track. like gmail's yahoo's etc. 
+
+If you wish to stop tracking a designated hostname simply update the hostname table by doing the following:
+
+update hostname set track = false where hostname =  '';
